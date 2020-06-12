@@ -1,19 +1,19 @@
 <%- include ('partials/header')  %>
-    <p>
-        <h1>
+
+    <div id='globe' class="container">
+        <img id='flag' src="https://cdn.countryflags.com/thumbs/<%= data[data.length-1].Country.toLowerCase() %>/flag-800.png" alt="">
+        <h1 id="country">
             <%= data[data.length-1].Country %>
-                </strong>
         </h1>
-        <img src="https://www.countryflags.io/<%= data[data.length-1].CountryCode %>/flat/64.png" alt=""> <br>
-        <strong>Confirmed</strong> -
-        <%= data[data.length-1].Confirmed %> <br>
-            <strong>Active</strong> -
-            <%= data[data.length-1].Active %><br>
-                <strong>Recovered</strong> -
-                <%= data[data.length-1].Recovered %><br>
-                    <strong>Deaths</strong> -
-                    <%= data[data.length-1].Deaths %>
+        <p>
+            <span id="cases"><strong>Total Confirmed :</strong><br></span>
+            <span id="confirm"><%= data[data.length-1].Confirmed %> <br></span>
+            <span id="cases"><strong>Total Recovered :</strong><br></span>
+            <span id="recover">  <%= data[data.length-1].Recovered %><br> </span>
+            <span id="cases"><strong>Total Deaths :</strong><br></span>
+            <span id="death"><%= data[data.length-1].Deaths %><br></span>
 
-    </p>
 
+        </p>
+    </div>
     <%- include ('partials/footer')  %>

@@ -1,18 +1,28 @@
 <%- include ('partials/header')  %>
-    <h1>GLOBAL</h1>
-    <p>
-        <strong>Total Confirmed</strong>-
-        <%= data.Global.TotalConfirmed %> <br>
-            <strong>Total Deaths</strong>-
-            <%= data.Global.TotalDeaths %> <br>
-                <strong>Total Recovered</strong>-
-                <%= data.Global.TotalRecovered %> <br>
-    </p>
 
-    <form action="/global" method="POST">
-        <input type="text" name="country">
-        <button>Submit</button>
-    </form>
+    <div id='globe' class="container">
+        <img src="/globe.png" alt="">
+        <h1 id="country">GLOBAL</h1>
+        <p>
+            <span id="cases"><strong>Total Confirmed :</strong><br></span>
+            <span id="confirm"> <%= data.Global.TotalConfirmed %> <br></span>
+            <span id="cases"><strong>Total Deaths :</strong><br></span>
+            <span id="death"><%= data.Global.TotalDeaths %> <br></span>
+            <span id="cases"><strong>Total Recovered :</strong><br></span>
+            <span id="recover">  <%= data.Global.TotalRecovered %> <br></span>
+
+        </p>
+
+        <form action="/global" method="POST">
+            <input type="text" name="country">
+            <button>Submit</button>
+        </form>
+
+    </div>
+
+
+
+
 
 
     <%- include ('partials/footer')  %>
