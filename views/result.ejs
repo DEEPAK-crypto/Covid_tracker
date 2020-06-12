@@ -1,23 +1,32 @@
 <%- include ('partials/header')  %>
-    <% data.Countries.forEach(function(count){%>
-        <% if(count.Country==c){%>
+    <% var err=1; %>
+        <% data.Countries.forEach(function(count){%>
+            <% if(count.Country==c){ err=0;%>
 
-            <div id='globe' class="container">
-                <img id='flag' src="https://cdn.countryflags.com/thumbs/<%= count.Slug.toLowerCase() %>/flag-800.png" alt="">
-                <h1 id="country">
-                    <%= count.Country %>
-                </h1>
-                <p>
-                    <span id="cases"><strong>Total Confirmed :</strong><br></span>
-                    <span id="confirm"><%= count.TotalConfirmed %> <br></span>
-                    <span id="cases"><strong>Total Recovered :</strong><br></span>
-                    <span id="recover">  <%= count.TotalRecovered %><br> </span>
-                    <span id="cases"><strong>Total Deaths :</strong><br></span>
-                    <span id="death"><%=count.TotalDeaths %><br></span>
+                <div id='globe' class="container">
+                    <img id='flag' src="https://cdn.countryflags.com/thumbs/<%= count.Slug.toLowerCase() %>/flag-800.png" alt="">
+                    <h1 id="country">
+                        <%= count.Country %>
+                    </h1>
+                    <p>
+                        <span id="cases"><strong>Total Confirmed :</strong><br></span>
+                        <span id="confirm"><%= count.TotalConfirmed %> <br></span>
+                        <span id="cases"><strong>Total Recovered :</strong><br></span>
+                        <span id="recover">  <%= count.TotalRecovered %><br> </span>
+                        <span id="cases"><strong>Total Deaths :</strong><br></span>
+                        <span id="death"><%=count.TotalDeaths %><br></span>
 
 
-                </p>
-            </div>
-            <%} %>
-                <% }) %>
-                    <%- include ('partials/footer')  %>
+                    </p>
+                </div>
+                <%} %>
+
+                    <% }) %>
+                        <% if (err) { %>
+                            <div id='globe' class="container">
+                                <span id="country">OOPS!!</span>
+                                <h1>Something went wrong.</h1>
+                                <a style="margin-top: 30px;" href="/global" class="btn btn-secondary">Go to Home</a>
+                            </div>
+                            <% } %>
+                                <%- include ('partials/footer')  %>

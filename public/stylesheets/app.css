@@ -60,3 +60,10 @@ h1#country {
     font-size: 60px;
     margin-bottom: 50px;
 }
+
+span#country {
+    text-transform: uppercase;
+    font-family: 'Rubik', sans-serif;
+    font-size: 60px;
+    margin-bottom: 50px;
+}

@@ -17,7 +17,7 @@ app.get('/global', function(req, res) {
         })
         .catch(function(err) {
             if (err)
-                console.log(err);
+                res.render('err');
         });
 });
 
@@ -30,7 +30,7 @@ app.get('/global/:country', function(req, res) {
         })
         .catch(function(err) {
             if (err)
-                console.log(err);
+                res.render('err');
         });
 })
 
