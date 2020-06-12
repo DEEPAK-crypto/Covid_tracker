@@ -23,7 +23,7 @@ app.get('/global', function(req, res) {
 
 app.get('/global/:country', function(req, res) {
 
-    var c = req.params.country;
+    var c = req.params.country.charAt(0).toUpperCase() + req.params.country.slice(1);
     axios.get('https://api.covid19api.com/summary')
         .then(function(response) {
             res.render('result', { data: response.data, c: c });
