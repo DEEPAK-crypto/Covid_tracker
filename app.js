@@ -22,9 +22,11 @@ app.get('/global', function(req, res) {
 });
 
 app.get('/global/:country', function(req, res) {
-    axios.get('https://api.covid19api.com/dayone/country/' + req.params.country)
+
+    var c = req.params.country;
+    axios.get('https://api.covid19api.com/summary')
         .then(function(response) {
-            res.render('result', { data: response.data });
+            res.render('result', { data: response.data, c: c });
         })
         .catch(function(err) {
             if (err)

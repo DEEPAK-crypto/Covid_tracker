@@ -1,19 +1,23 @@
 <%- include ('partials/header')  %>
+    <% data.Countries.forEach(function(count){%>
+        <% if(count.Country==c){%>
 
-    <div id='globe' class="container">
-        <img id='flag' src="https://cdn.countryflags.com/thumbs/<%= data[data.length-1].Country.toLowerCase() %>/flag-800.png" alt="">
-        <h1 id="country">
-            <%= data[data.length-1].Country %>
-        </h1>
-        <p>
-            <span id="cases"><strong>Total Confirmed :</strong><br></span>
-            <span id="confirm"><%= data[data.length-1].Confirmed %> <br></span>
-            <span id="cases"><strong>Total Recovered :</strong><br></span>
-            <span id="recover">  <%= data[data.length-1].Recovered %><br> </span>
-            <span id="cases"><strong>Total Deaths :</strong><br></span>
-            <span id="death"><%= data[data.length-1].Deaths %><br></span>
+            <div id='globe' class="container">
+                <img id='flag' src="https://cdn.countryflags.com/thumbs/<%= count.Slug.toLowerCase() %>/flag-800.png" alt="">
+                <h1 id="country">
+                    <%= count.Country %>
+                </h1>
+                <p>
+                    <span id="cases"><strong>Total Confirmed :</strong><br></span>
+                    <span id="confirm"><%= count.TotalConfirmed %> <br></span>
+                    <span id="cases"><strong>Total Recovered :</strong><br></span>
+                    <span id="recover">  <%= count.TotalRecovered %><br> </span>
+                    <span id="cases"><strong>Total Deaths :</strong><br></span>
+                    <span id="death"><%=count.TotalDeaths %><br></span>
 
 
-        </p>
-    </div>
-    <%- include ('partials/footer')  %>
+                </p>
+            </div>
+            <%} %>
+                <% }) %>
+                    <%- include ('partials/footer')  %>
