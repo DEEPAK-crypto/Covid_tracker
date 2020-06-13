@@ -1,0 +1,39 @@
+<%- include ('partials/inheader')  %>
+
+    <% var confirmed =0;
+var deceased=0;
+var recovered = 0;  
+ Object.keys(tableData).forEach((key,index)=>{
+     if(key!="Unknown")
+  {  confirmed+=tableData[key].confirmed;
+    recovered+=tableData[key].recovered;
+    deceased+=tableData[key].deceased;}
+ }) %>
+
+
+        <% var err=1; %>
+            <% data.forEach(function(sta){%>
+
+                <% if(sta.state==st){ err=0;%>
+                    <div id='globe' class="container">
+                        <h1 id="country">
+                            <%= sta.state %>
+                        </h1>
+                        <p>
+                            <span id="cases"><strong>Total Confirmed :</strong><br></span>
+                            <span id="confirm"> <%= sta.confirmed %><span class="ch"> +<%= confirmed %> </span><br></span>
+                            <span id="cases"><strong>Total Recovered :</strong><br></span>
+                            <span id="recover">   <%= sta.recovered %> <span class="chr"> +<%= recovered %> </span> <br> </span>
+                            <span id="cases"><strong>Total Deaths :</strong><br></span>
+                            <span id="death"><%= sta.deaths %><span class="ch"> +<%= deceased %> </span><br></span>
+                        </p>
+                    </div>
+                    <%} %>
+                        <%})%>
+
+                            <% if (err) { %>
+                                <h1>Something went wrong.</h1>
+                                </div>
+                                <% } %>
+
+                                    <%- include ('partials/footer')  %>

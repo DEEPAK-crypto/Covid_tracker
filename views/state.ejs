@@ -3,10 +3,9 @@
 
     <% var err=1; %>
         <% data.forEach(function(sta){%>
+
             <% if(sta.state==st){ err=0;%>
-
                 <div id='globe' class="container">
-
                     <h1 id="country">
                         <%= sta.state %>
                     </h1>
@@ -17,14 +16,9 @@
                         <span id="recover">   <%= sta.recovered %><br> </span>
                         <span id="cases"><strong>Total Deaths :</strong><br></span>
                         <span id="death"><%= sta.deaths %><br></span>
-
-
                     </p>
-
-
                 </div>
                 <%} %>
-
                     <%})%>
                         <div class="container">
 
@@ -42,8 +36,6 @@
                                     <tbody>
 
                                         <% Object.keys(tableData).forEach((key,index)=>{ %>
-
-
                                             <tr>
                                                 <td id="district">
                                                     <%= key %>
@@ -60,20 +52,14 @@
                                                 <td>
                                                     <%=  tableData[key].deceased %> <span id="ch"> +<%=tableData[key].delta.deceased %></span>
                                                 </td>
-
                                             </tr>
-
-
                                             <% }) %>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                         <% if (err) { %>
-
-
                             <h1>Something went wrong.</h1>
-
                             </div>
                             <% } %>
 
