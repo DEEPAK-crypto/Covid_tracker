@@ -1,3 +1,20 @@
-<h1>
-    <%= st %>
-</h1>
+<% st = st.slice(0,st.length-1) %>
+
+
+
+    <% var err=1; %>
+        <% data.forEach(function(sta){%>
+            <% if(sta.state==st){ err=0;%>
+                <h1>
+                    <%= sta.state %>
+                </h1>
+                <%} %>
+                    <%})%>
+
+                        <% if (err) { %>
+
+
+                            <h1>Something went wrong.</h1>
+
+                            </div>
+                            <% } %>

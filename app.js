@@ -46,12 +46,23 @@ app.get('/india', function(req, res) {
         });
 })
 
+app.get('/india/:state', function(req, res) {
+    axios.get('https://api.covid19india.org/data.json')
+        .then(function(response) {
+            res.render('state', { data: response.data.statewise, st: req.params.state });
+        })
+        .catch(function(err) {
+            if (err)
+                res.render('err');
+        });
+})
+
 app.post('/global', function(req, res) {
     res.redirect('/global/' + req.body.country);
 })
 
 app.get("/state", function(req, res) {
-    res.render("state", { st: req.query.state });
+    res.redirect("/india/" + req.query.state);
 })
 const PORT = process.env.PORT || 3000;
 app.listen(PORT);

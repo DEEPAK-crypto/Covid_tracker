@@ -2,7 +2,7 @@
     <h1>
         <%= data.cases_time_series[data.cases_time_series.length-1].totalconfirmed %>
     </h1>
-    <form action="/state" action="POST">
+    <form action="/state" action="get">
         <select name="state" id="state">
         <% data.statewise.forEach(function(state) { %>
             <label for="state">Choose a car:</label>
