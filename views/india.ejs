@@ -1,0 +1,16 @@
+<%- include ('partials/header')  %>
+    <h1>
+        <%= data.cases_time_series[data.cases_time_series.length-1].totalconfirmed %>
+    </h1>
+    <form action="/state" action="POST">
+        <select name="state" id="state">
+        <% data.statewise.forEach(function(state) { %>
+            <label for="state">Choose a car:</label>
+            <option value="<%= state.state %> "><%= state.state %> </option>
+        <% }) %>
+    </select>
+        <button id="button">Submit</button>
+    </form>
+
+    <script src="/scripts/india.js"></script>
+    <%- include ('partials/footer')  %>

@@ -67,3 +67,7 @@ span#country {
     font-size: 60px;
     margin-bottom: 50px;
 }
+
+td {
+    border: 2px solid black;
+}
