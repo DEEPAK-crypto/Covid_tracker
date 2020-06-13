@@ -29,9 +29,8 @@ div#globe {
 
 #death {
     color: #d94a3b;
-    font-family: 'Rubik' font-weight: 700;
-    ,
-    sans-serif;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 700;
     font-size: 70px;
 }
 
@@ -56,6 +55,8 @@ div#globe {
 #flag {
     width: 300px;
     margin-bottom: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1), 0 2px 10px 0 rgba(0, 0, 0, 0.1);
 }
 
 h1#country {
