@@ -38,7 +38,7 @@ app.get('/global/:country', function(req, res) {
 app.get('/india', function(req, res) {
     axios.get('https://api.covid19india.org/data.json')
         .then(function(response) {
-            res.render('india', { data: response.data });
+            res.render('india', { data: response.data.statewise });
         })
         .catch(function(err) {
             if (err)
@@ -47,15 +47,32 @@ app.get('/india', function(req, res) {
 })
 
 app.get('/india/:state', function(req, res) {
-    axios.get('https://api.covid19india.org/data.json')
-        .then(function(response) {
-            res.render('state', { data: response.data.statewise, st: req.params.state });
+    // axios.get('https://api.covid19india.org/data.json')
+    //     .then(function(response) {
+    //         res.render('state', { data: response.data.statewise, st: req.params.state });
+    //     })
+    //     .catch(function(err) {
+    //         if (err)
+    //             res.render('err');
+    st = req.params.state;
+    st = st.slice(0, st.length - 1);
+    // console.log(st.length);
+    var state = axios({ url: 'https://api.covid19india.org/data.json' })
+    var table = axios({ url: 'https://api.covid19india.org/state_district_wise.json' })
+    axios.all([state, table]).then(function(response) {
+
+            var userData = response[0].data;
+            var tableData = response[1].data;
+            res.render('state', { data: userData.statewise, tableData: tableData[st].districtData, st: st });
+
         })
-        .catch(function(err) {
-            if (err)
+        .catch(function(error) {
+            if (error)
                 res.render('err');
         });
-})
+
+
+});
 
 app.post('/global', function(req, res) {
     res.redirect('/global/' + req.body.country);
