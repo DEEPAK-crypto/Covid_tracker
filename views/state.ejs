@@ -1,20 +1,42 @@
-<% st = st.slice(0,st.length-1) %>
+<%- include ('partials/header')  %>
+
+    <% st = st.slice(0,st.length-1) %>
+        <% var err=1; %>
+            <% data.forEach(function(sta){%>
+                <% if(sta.state==st){ err=0;%>
+                    <h1>
+                        <%= sta.state %>
+                    </h1>
+
+                    <table>
+                        <tr>
+                            <td>Confirmed</td>
+                            <td>
+                                <%= sta.confirmed %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Deaths</td>
+                            <td>
+                                <%= sta.deaths %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Recovered</td>
+                            <td>
+                                <%= sta.recovered %>
+                            </td>
+                        </tr>
+
+                    </table>
+                    <%} %>
+                        <%})%>
+
+                            <% if (err) { %>
 
 
+                                <h1>Something went wrong.</h1>
 
-    <% var err=1; %>
-        <% data.forEach(function(sta){%>
-            <% if(sta.state==st){ err=0;%>
-                <h1>
-                    <%= sta.state %>
-                </h1>
-                <%} %>
-                    <%})%>
-
-                        <% if (err) { %>
-
-
-                            <h1>Something went wrong.</h1>
-
-                            </div>
-                            <% } %>
+                                </div>
+                                <% } %>
+                                    <%- include ('partials/footer')  %>
