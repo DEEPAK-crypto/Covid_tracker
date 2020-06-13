@@ -1,11 +1,27 @@
-<%- include ('partials/header')  %>
-    <h1>
-        <%= data.cases_time_series[data.cases_time_series.length-1].totalconfirmed %>
-    </h1>
+<%- include ('partials/inheader')  %>
+
+    <div id='globe' class="container">
+        <img id='flag' src="https://cdn.countryflags.com/thumbs/india/flag-800.png" alt="">
+        <h1 id="country">
+            India
+        </h1>
+        <p>
+            <span id="cases"><strong>Total Confirmed :</strong><br></span>
+            <span id="confirm"><%= data[0].confirmed %> <br></span>
+            <span id="cases"><strong>Total Recovered :</strong><br></span>
+            <span id="recover">  <%= data[0].recovered %><br> </span>
+            <span id="cases"><strong>Total Deaths :</strong><br></span>
+            <span id="death"><%=data[0].deaths %><br></span>
+
+
+        </p>
+    </div>
+
     <form action="/state" action="get">
+        <label for="state">Choose a State:</label>
         <select name="state" id="state">
-        <% data.statewise.forEach(function(state) { %>
-            <label for="state">Choose a car:</label>
+        <% data.forEach(function(state) { %>
+            
             <option value="<%= state.state %> "><%= state.state %> </option>
         <% }) %>
     </select>

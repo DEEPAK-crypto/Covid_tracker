@@ -1,0 +1,80 @@
+body {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background: #1E9600;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ff7b00, #ffffff, #1E9600);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ff7b00, #ffffff, #1E9600);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.container-fluid {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+h1#head {
+    font-size: 3em;
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    word-spacing: 0.2em;
+    font-family: -apple-system-heading, BlinkMacSystemFont, sans-serif;
+}
+
+div#head {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    color: white;
+    background-color: rgb(48, 48, 48);
+}
+
+div#globe {
+    margin-top: 50px;
+}
+
+#death {
+    color: #d94a3b;
+    font-family: 'Rubik', sans-serif;
+    font-size: 70px;
+}
+
+#recover {
+    color: #4fbd51;
+    font-family: 'Rubik', sans-serif;
+    font-size: 70px;
+}
+
+#confirm {
+    color: gray;
+    font-family: 'Rubik', sans-serif;
+    font-size: 70px;
+}
+
+#cases {
+    font-size: 32px;
+}
+
+#flag {
+    width: 300px;
+    margin-bottom: 30px;
+}
+
+h1#country {
+    text-transform: uppercase;
+    font-family: 'Rubik', sans-serif;
+    font-size: 60px;
+    margin-bottom: 50px;
+}
+
+span#country {
+    text-transform: uppercase;
+    font-family: 'Rubik', sans-serif;
+    font-size: 60px;
+    margin-bottom: 50px;
+}
+
+td {
+    border: 2px solid black;
+}

@@ -1,34 +1,26 @@
-<%- include ('partials/header')  %>
+<%- include ('partials/inheader')  %>
 
     <% st = st.slice(0,st.length-1) %>
         <% var err=1; %>
             <% data.forEach(function(sta){%>
                 <% if(sta.state==st){ err=0;%>
-                    <h1>
-                        <%= sta.state %>
-                    </h1>
 
-                    <table>
-                        <tr>
-                            <td>Confirmed</td>
-                            <td>
-                                <%= sta.confirmed %>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Deaths</td>
-                            <td>
-                                <%= sta.deaths %>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Recovered</td>
-                            <td>
-                                <%= sta.recovered %>
-                            </td>
-                        </tr>
+                    <div id='globe' class="container">
 
-                    </table>
+                        <h1 id="country">
+                            <%= sta.state %>
+                        </h1>
+                        <p>
+                            <span id="cases"><strong>Total Confirmed :</strong><br></span>
+                            <span id="confirm"> <%= sta.confirmed %><br></span>
+                            <span id="cases"><strong>Total Recovered :</strong><br></span>
+                            <span id="recover">   <%= sta.recovered %><br> </span>
+                            <span id="cases"><strong>Total Deaths :</strong><br></span>
+                            <span id="death"><%= sta.deaths %><br></span>
+
+
+                        </p>
+                    </div>
                     <%} %>
                         <%})%>
 
