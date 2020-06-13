@@ -32,37 +32,45 @@
                             </div>
                             <% } %>
 
+                                <div class="container" id="table">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">District</th>
+                                                <th scope="col">Active</th>
+                                                <th scope="col">Confirmed</th>
+                                                <th scope="col">Recovered</th>
+                                                <th scope="col">Deaths</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
 
-                                <table>
-                                    <tr>
-                                        <td>District</td>
-                                        <td>Active</td>
-                                        <td>Confirmed</td>
-                                        <td>Deaths</td>
-                                    </tr>
-
-
-                                    <% Object.keys(tableData).forEach((key,index)=>{ %>
-
-
-                                        <tr>
-                                            <td>
-                                                <%= key %>
-                                            </td>
-                                            <td>
-                                                <%= tableData[key].active %>
-                                            </td>
-                                            <td>
-                                                <%=  tableData[key].confirmed %>
-                                            </td>
-                                            <td>
-                                                <%=  tableData[key].deceased %>
-                                            </td>
-
-                                        </tr>
+                                            <% Object.keys(tableData).forEach((key,index)=>{ %>
 
 
-                                        <% }) %>
+                                                <tr>
+                                                    <td id="district">
+                                                        <%= key %>
+                                                    </td>
+                                                    <td>
+                                                        <%= tableData[key].active %>
+                                                    </td>
+                                                    <td>
+                                                        <%=  tableData[key].confirmed %> <span id="ch"> +<%=tableData[key].delta.confirmed %></span>
+                                                    </td>
+                                                    <td>
+                                                        <%=  tableData[key].recovered %> <span id="chr"> +<%=tableData[key].delta.recovered %></span>
+                                                    </td>
+                                                    <td>
+                                                        <%=  tableData[key].deceased %> <span id="ch"> +<%=tableData[key].delta.deceased %></span>
+                                                    </td>
 
-                                </table>
+                                                </tr>
+
+
+                                                <% }) %>
+                                        </tbody>
+                                    </table>
+                                </div>
+
                                 <%- include ('partials/footer')  %>

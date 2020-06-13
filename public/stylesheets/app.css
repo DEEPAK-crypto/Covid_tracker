@@ -29,7 +29,9 @@ div#globe {
 
 #death {
     color: #d94a3b;
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Rubik' font-weight: 700;
+    ,
+    sans-serif;
     font-size: 70px;
 }
 
@@ -37,12 +39,14 @@ div#globe {
     color: #4fbd51;
     font-family: 'Rubik', sans-serif;
     font-size: 70px;
+    font-weight: 700;
 }
 
 #confirm {
     color: gray;
     font-family: 'Rubik', sans-serif;
     font-size: 70px;
+    font-weight: 700;
 }
 
 #cases {
@@ -58,6 +62,7 @@ h1#country {
     text-transform: uppercase;
     font-family: 'Rubik', sans-serif;
     font-size: 60px;
+    font-weight: 700;
     margin-bottom: 50px;
 }
 
@@ -66,6 +71,7 @@ span#country {
     font-family: 'Rubik', sans-serif;
     font-size: 60px;
     margin-bottom: 50px;
+    font-weight: 700;
 }
 
 td {

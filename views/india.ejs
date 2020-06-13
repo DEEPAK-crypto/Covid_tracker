@@ -15,18 +15,23 @@
 
 
         </p>
+
+
+        <form action="/state" class="form" action="get">
+            <div class="form-group mx-sm-4 mb-3" id="stateSearch">
+                <label for="state" class="col-sm-2 col-form-label" style="font-family: 'Rubik', sans-serif;font-weight: 500;">State:</label>
+                <select name="state" class="form-control col-md-6" id="exampleFormControlSelect1" style="margin: auto;">
+                    <% data.forEach(function(state) { %>
+                
+                     <option value="<%= state.state %> "><%= state.state %> </option>
+                     <% }) %>
+                </select>
+                <button id="button" class="btn btn-primary mb-2" type="submit" style="margin-top: 10px;">Search</button>
+            </div>
+        </form>
     </div>
 
-    <form action="/state" action="get">
-        <label for="state">Choose a State:</label>
-        <select name="state" id="state">
-        <% data.forEach(function(state) { %>
-            
-            <option value="<%= state.state %> "><%= state.state %> </option>
-        <% }) %>
-    </select>
-        <button id="button">Submit</button>
-    </form>
+
 
     <script src="/scripts/india.js"></script>
     <%- include ('partials/footer')  %>
