@@ -20,10 +20,55 @@
 
 
                     </p>
+
+
                 </div>
                 <%} %>
-                    <%})%>
 
+                    <%})%>
+                        <div class="container">
+
+                            <div class="table-responsive" id="table">
+                                <table class="table table-striped">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th scope="col">District</th>
+                                            <th scope="col">Active</th>
+                                            <th scope="col">Confirmed</th>
+                                            <th scope="col">Recovered</th>
+                                            <th scope="col">Deaths</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <% Object.keys(tableData).forEach((key,index)=>{ %>
+
+
+                                            <tr>
+                                                <td id="district">
+                                                    <%= key %>
+                                                </td>
+                                                <td>
+                                                    <%= tableData[key].active %>
+                                                </td>
+                                                <td>
+                                                    <%=  tableData[key].confirmed %> <span id="ch"> +<%=tableData[key].delta.confirmed %></span>
+                                                </td>
+                                                <td>
+                                                    <%=  tableData[key].recovered %> <span id="chr"> +<%=tableData[key].delta.recovered %></span>
+                                                </td>
+                                                <td>
+                                                    <%=  tableData[key].deceased %> <span id="ch"> +<%=tableData[key].delta.deceased %></span>
+                                                </td>
+
+                                            </tr>
+
+
+                                            <% }) %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                         <% if (err) { %>
 
 
@@ -31,46 +76,5 @@
 
                             </div>
                             <% } %>
-
-                                <div class="container" id="table">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">District</th>
-                                                <th scope="col">Active</th>
-                                                <th scope="col">Confirmed</th>
-                                                <th scope="col">Recovered</th>
-                                                <th scope="col">Deaths</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                            <% Object.keys(tableData).forEach((key,index)=>{ %>
-
-
-                                                <tr>
-                                                    <td id="district">
-                                                        <%= key %>
-                                                    </td>
-                                                    <td>
-                                                        <%= tableData[key].active %>
-                                                    </td>
-                                                    <td>
-                                                        <%=  tableData[key].confirmed %> <span id="ch"> +<%=tableData[key].delta.confirmed %></span>
-                                                    </td>
-                                                    <td>
-                                                        <%=  tableData[key].recovered %> <span id="chr"> +<%=tableData[key].delta.recovered %></span>
-                                                    </td>
-                                                    <td>
-                                                        <%=  tableData[key].deceased %> <span id="ch"> +<%=tableData[key].delta.deceased %></span>
-                                                    </td>
-
-                                                </tr>
-
-
-                                                <% }) %>
-                                        </tbody>
-                                    </table>
-                                </div>
 
                                 <%- include ('partials/footer')  %>
